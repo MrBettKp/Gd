@@ -1,0 +1,23 @@
+{
+    "dashboard": {
+        "title": "Game Data Visualization",
+        "version": "1.0.0",
+        "features": {
+            "liveUpdates": true,
+            "maxEntities": 1000,
+            "refreshRate": 1000
+        },
+        "colors": {
+            "player": "#FF5733",
+            "npc": "#33FF57",
+            "item": "#3385FF"
+        },
+        "api": {
+            "baseUrl": "http://localhost:8000",
+            "endpoints": {
+                "entities": "/api/entities",
+                "update": "/api/update"
+            }
+        }
+    }
+}
