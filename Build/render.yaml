@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: game-dashboard-frontend
+    runtime: docker
+    dockerfilePath: Dashboard/Frontend/Dockerfile
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://game-dashboard-backend.onrender.com
+    healthCheckPath: /
+    staticSites:
+      - bucketName: dashboard-assets
+
+  - type: web
+    name: game-dashboard-backend
+    runtime: docker
+    dockerfilePath: Dashboard/WebBackend/Dockerfile
+    envVars:
+      - key: REDIS_URL
+        value: redis://redis:6379
+    healthCheckPath: /api/health
+    instanceClass: free
+
+databases:
+  - name: redis
+    type: redis
+    plan: free
